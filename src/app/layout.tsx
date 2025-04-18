@@ -27,14 +27,16 @@ export const viewport: Viewport = {
   themeColor: '#18181B',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`dark ${geistSans.variable} ${geistMono.variable}`}>
-      <ClientBody>{children}</ClientBody>
+      <head>
+        {/* Google AdSense verification meta tag */}
+        <meta name="google-adsense-account" content="ca-pub-9985023579530298" />
+      </head>
+      <body>
+        <ClientBody>{children}</ClientBody>
+      </body>
     </html>
   );
 }
